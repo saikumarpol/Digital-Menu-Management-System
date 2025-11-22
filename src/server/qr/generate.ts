@@ -6,13 +6,27 @@ import { env } from "~/env";
  * Generates a QR code for the restaurant's public menu URL.
  * 
  * @param slug The restaurant slug (e.g., "pista-restaurant")
+ * @param baseUrl Optional base URL. If not provided, tries to use env variable or defaults to relative path
  * @returns base64 PNG QR Code
  */
 
-export async function generateRestaurantQR(slug: string) {
+export async function generateRestaurantQR(slug: string, baseUrl?: string) {
   try {
-    // Public menu link (the page at /menu/[slug])
-    const menuUrl = `${env.NEXT_PUBLIC_API_BASE_URL}/menu/${slug}`;
+    // Determine the base URL:
+    // 1. Use provided baseUrl (from request headers)
+    // 2. Fall back to NEXT_PUBLIC_API_BASE_URL env variable
+    // 3. Fall back to VERCEL_URL (automatically set by Vercel)
+    // 4. Fall back to relative path (works for client-side)
+    let base = baseUrl;
+    
+    if (!base) {
+      base = env.NEXT_PUBLIC_API_BASE_URL ?? 
+             process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined;
+    }
+    
+    // Ensure base URL doesn't end with a slash
+    const cleanBase = base?.replace(/\/$/, "");
+    const menuUrl = cleanBase ? `${cleanBase}/menu/${slug}` : `/menu/${slug}`;
 
     // Generate QR code as base64 PNG
     const qrBase64 = await QRCode.toDataURL(menuUrl, {

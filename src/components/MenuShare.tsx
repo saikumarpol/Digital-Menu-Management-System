@@ -21,17 +21,28 @@ export default function MenuShare({ slug, size = 240 }: Props) {
     let cancelled = false;
     void fetch(`/api/qr/${encodeURIComponent(slug)}`)
       .then((res) => res.json())
-      .then((data: { qr?: string }) => {
+      .then((data: { qr?: string; url?: string; error?: string }) => {
         if (cancelled) return;
+        if (data.error) {
+          console.error("QR generation error:", data.error);
+          // fallback to Google Charts QR
+          setQrSrc(`https://chart.googleapis.com/chart?chs=${size}x${size}&cht=qr&chl=${encodeURIComponent(`${origin}/menu/${slug}`)}`);
+          return;
+        }
         if (data?.qr) {
           setQrSrc(data.qr);
+          // Use the URL from API response if available (it will be absolute)
+          if (data.url) {
+            setUrl(data.url);
+          }
         } else {
           // fallback to Google Charts QR
           setQrSrc(`https://chart.googleapis.com/chart?chs=${size}x${size}&cht=qr&chl=${encodeURIComponent(`${origin}/menu/${slug}`)}`);
         }
       })
-      .catch(() => {
+      .catch((err) => {
         if (cancelled) return;
+        console.error("QR fetch error:", err);
         const origin = typeof window !== "undefined" ? window.location.origin : "";
         setQrSrc(`https://chart.googleapis.com/chart?chs=${size}x${size}&cht=qr&chl=${encodeURIComponent(`${origin}/menu/${slug}`)}`);
       });
