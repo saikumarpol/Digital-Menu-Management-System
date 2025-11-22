@@ -2,28 +2,261 @@
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
-## What's next? How do I make an app with this?
+## ABSTRACT
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+The rapid digital transformation across industries has significantly influenced the food and restaurant sector. Traditional printed menus have limitations, including frequent reprinting, hygiene concerns, and lack of real-time updates. Customers also prefer touch-free solutions post-pandemic.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+To address these challenges, the **Digital Menu Management System** has been developed. This system enables restaurant owners to create and manage their digital menus through a centralized web-based platform, offering complete control over categories, dishes, images, and pricing. Each restaurant receives a QR code that customers can scan using their mobile devices to instantly access the digital menu.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+The system is developed using the **T3 Stack: Next.js, tRPC, Prisma, PostgreSQL (NeonDB), Tailwind CSS, Cloudinary, and Nodemailer**. The application is responsive, scalable, and optimized for both administrative users and customers.
+
+This report presents the system’s architecture, methodology, design decisions, implementation steps, and functionalities.
+
+---
+
+## INTRODUCTION
+
+Restaurant menus undergo frequent updates—new items are added, prices change, seasonal dishes appear, and old items are removed. Traditional printed menus require continuous reprinting, which is both expensive and time-consuming.
+
+The need for contactless menu solutions grew significantly after COVID-19. Customers prefer scanning a QR code and viewing the menu on their phones.
+
+The Digital Menu Management System solves these issues by providing:
+
+* Admin Panel for restaurant owners
+* Dynamic menu management
+* Cloud-based image upload
+* Real-time updates
+* QR code access
+* Mobile-friendly UI
+
+The system eliminates operational overhead while improving user experience.
+
+---
+
+## PROBLEM STATEMENT
+
+Restaurants face multiple challenges with traditional menus:
+
+### 3.1 Limitations of Printed Menus
+
+* Expensive to reprint when prices or items change
+* Prone to damage and unhygienic
+* Cannot be updated instantly
+* Not suitable for contactless dining
+
+### 3.2 Customer Expectations
+
+* Prefer digital and touch-free menus
+* Expect visually appealing layouts
+* Want accurate, real-time information
+
+### 3.3 Restaurant Owner Limitations
+
+* Difficult to maintain multiple menus across branches
+* No centralized system to manage dishes or categories
+* Manual updates lead to errors
+
+Therefore, a digital, dynamic, and scalable menu system is required.
+
+---
+
+## OBJECTIVES
+
+The main objectives of the system are:
+
+* Provide restaurants with a digital platform to manage menus efficiently.
+* Enable customers to access menus via QR codes without installing an app.
+* Allow owners to edit menu categories and dishes instantly.
+* Support dish images, descriptions, and spice-level indicators.
+* Use Cloudinary for seamless image uploads.
+* Implement OTP-based authentication for easy login.
+* Offer a mobile-friendly, fast, and elegant customer menu interface.
+* Ensure the system is scalable and easy to deploy.
+
+---
+
+## PROPOSED SYSTEM
+
+### 5.1 Restaurant Owner/Admin Panel
+
+The admin panel allows:
+
+* User login via email OTP
+* Restaurant creation
+* Category creation
+* Dish addition (name, image, description, spice level, categories)
+* Dashboard view for restaurants, categories, dishes
+
+### 5.2 Customer Interface (Public Menu Page)
+
+Customers scan a QR code to view:
+
+* Restaurant details
+* Category list
+* Dish cards (images, description, spice-level)
+* Sticky category navigation
+* Floating menu button
+
+### 5.3 QR Code System
+
+Each restaurant receives a unique QR code linking to `/menu/[slug]`.
+Generated using the `qrcode` library.
+
+---
+
+## SYSTEM ARCHITECTURE
+
+The architecture includes:
+
+### 6.1 Frontend (Next.js 15)
+
+* React 19 + App Router
+* Tailwind CSS + shadcn/ui
+* Combination of server and client components
+
+### 6.2 Backend (tRPC)
+
+Routers include:
+
+* Authentication
+* Restaurants
+* Categories
+* Dishes
+* Public menu
+* QR generation
+
+### 6.3 Database (Prisma + PostgreSQL)
+
+Models include User, Restaurant, Category, Dish, DishCategory.
+
+### 6.4 External Services
+
+* Cloudinary for image upload
+* Nodemailer for OTP emails
+* QRCode library for QR code generation
+
+---
+
+## IMPLEMENTATION DETAILS (STEP-BY-STEP)
+
+### Step 1: Initialize T3 Project
+
+```bash
+npm create t3-app@latest
+```
+
+Options:
+
+* TypeScript: Yes
+* Tailwind: Yes
+* tRPC: Yes
+* NextAuth: No
+* Prisma: Yes
+
+### Step 2: Setup Database
+
+Create NeonDB PostgreSQL instance and add `DATABASE_URL` in `.env`.
+
+### Step 3: Create Prisma Schema
+
+Models: User, Restaurant, Category, Dish, DishCategory.
+Run:
+
+```bash
+npx prisma generate
+npx prisma db push
+```
+
+### Step 4: OTP Authentication
+
+Using Nodemailer + Gmail App Password.
+
+### Step 5: Admin Panel UI
+
+Pages under `/admin/restaurants`.
+
+### Step 6: Cloudinary Integration
+
+Image uploads using `cloudinary.uploader.upload()`.
+
+### Step 7: Public Menu Page
+
+Features:
+
+* Sticky headers
+* Floating category button
+* Dish card layout
+
+### Step 8: QR Code Generation
+
+Using:
+
+```js
+QRCode.toDataURL(menuUrl)
+```
+
+---
+
+## RESULT & DISCUSSION
+
+System benefits:
+
+* Contactless menu access
+* Faster updates
+* Cost reduction
+* Better customer experience
+
+Owners appreciated:
+
+* Easy dish creation
+* Quick QR generation
+* Cloud integration
+
+Customers enjoyed:
+
+* Clean UI
+* Quick access
+* High-quality images
+
+---
+
+## LIMITATIONS
+
+* Requires internet
+* No offline mode
+* No ordering/payment system
+* QR codes must be printed
+
+---
+
+## FUTURE ENHANCEMENTS
+
+* Online ordering
+* Payment gateway
+* Multi-branch support
+* Admin analytics dashboard
+* Table reservation system
+* Customer reviews
+
+---
+
+## CONCLUSION
+
+The Digital Menu Management System modernizes restaurant workflows by enabling real-time digital menus, improving hygiene, reducing costs, and enhancing customer experience. Built with a powerful tech stack, it is scalable, maintainable, and ready for future expansion.
+
+---
 
 ## Learn More
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+To learn more about the T3 stack:
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+* Documentation: [https://create.t3.gg/](https://create.t3.gg/)
+* Tutorials: [https://create.t3.gg/en/faq#what-learning-resources-are-currently-available](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available)
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+## Deployment Guides
 
-## How do I deploy this?
+Follow deployment steps for:
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+* Vercel
+* Netlify
+* Docker
