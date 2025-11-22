@@ -62,7 +62,7 @@ export default function RestaurantRow({ id, name, location, slug }: Props) {
 
         <button
           onClick={handleDelete}
-          disabled={loading || deleteRestaurant.isLoading}
+          disabled={loading || deleteRestaurant.isPending}
           className="h-9 rounded-full border border-rose-100 bg-rose-50 px-3 text-xs font-semibold text-rose-700 shadow-sm transition hover:border-rose-200 hover:bg-rose-100 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {loading ? "Deleting..." : "Delete"}

@@ -30,6 +30,7 @@ const createCaller = cache(async () => {
  * imported outside a request scope. Instead, provide a function that returns
  * the hydration helpers when invoked during a request.
  */
-export function getServerHydrationHelpers() {
-  return createHydrationHelpers(createCaller(), getQueryClient);
+export async function getServerHydrationHelpers() {
+  const caller = await createCaller();
+  return createHydrationHelpers<typeof appRouter>(caller, getQueryClient);
 }
