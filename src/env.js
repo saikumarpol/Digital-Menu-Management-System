@@ -1,0 +1,16 @@
+export const env = {
+  DATABASE_URL: process.env.DATABASE_URL,
+
+  NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
+
+  JWT_SECRET: process.env.JWT_SECRET,
+
+  SMTP_HOST: process.env.SMTP_HOST,
+  SMTP_PORT: process.env.SMTP_PORT,
+  SMTP_USER: process.env.SMTP_USER,
+  SMTP_PASS: process.env.SMTP_PASS,
+
+  CLOUDINARY_NAME: process.env.CLOUDINARY_NAME,
+  CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
+  CLOUDINARY_SECRET_KEY: process.env.CLOUDINARY_SECRET_KEY,
+};
