@@ -272,6 +272,34 @@ I first reviewed the requirements and understood the need for a digital menu sys
 * **ChatGPT (GPT models)** for code guidance, debugging, and improving UI/UX logic
 * **Cursor IDE (AI coding editor)** for refactoring and debugging support
 
+### ❗ Prompts Provided to AI Tools
+
+Not applicable / not included by request.
+
+### ❗ AI Mistakes & Edge Cases Sections
+
+Removed as requested.
+
+## Screenshots
+
+### Home Page
+
+![Home Page](/mnt/data/Screenshot 2025-11-22 at 11.25.07 PM.png)
+![Home Page 2](/mnt/data/Screenshot 2025-11-22 at 11.25.28 PM.png)
+
+### Live Menus
+
+![Live Menu 1](/mnt/data/WhatsApp Image 2025-11-22 at 11.23.05 PM (1).jpeg)
+![Live Menu 2](/mnt/data/WhatsApp Image 2025-11-22 at 11.23.05 PM (2).jpeg)
+![Live Menu 3](/mnt/data/WhatsApp Image 2025-11-22 at 11.23.05 PM (3).jpeg)
+![Live Menu 4](/mnt/data/WhatsApp Image 2025-11-22 at 11.23.05 PM (4).jpeg)
+
+### Restaurant Menu Screens
+
+![Menu Screen 1](/mnt/data/WhatsApp Image 2025-11-22 at 11.23.05 PM.jpeg)
+![Menu Screen 2](/mnt/data/WhatsApp Image 2025-11-22 at 11.23.06 PM (1).jpeg)
+![Menu Screen 3](/mnt/data/WhatsApp Image 2025-11-22 at 11.23.06 PM (2).jpeg)
+![Menu Screen 4](/mnt/data/WhatsApp Image 2025-11-22 at 11.23.06 PM.jpeg)
 
 ## Deployment Guides
 
