@@ -272,36 +272,20 @@ I first reviewed the requirements and understood the need for a digital menu sys
 * **ChatGPT (GPT models)** for code guidance, debugging, and improving UI/UX logic
 * **Cursor IDE (AI coding editor)** for refactoring and debugging support
 
-### ❗ Prompts Provided to AI Tools
-
-Not applicable / not included by request.
-
-### ❗ AI Mistakes & Edge Cases Sections
-
-Removed as requested.
 
 ## Screenshots
+![WhatsApp Image 2025-11-22 at 11 23 06 PM](https://github.com/user-attachments/assets/a2011e80-e1e3-44ff-b9a4-2cba253ff86b)
+![WhatsApp Image 2025-11-22 at 11 23 06 PM (2)](https://github.com/user-attachments/assets/ec5216f0-3087-44e5-b0e2-940b7fd79413)
+![WhatsApp Image 2025-11-22 at 11 23 06 PM (1)](https://github.com/user-attachments/assets/b5ee9f0f-1c21-4195-ad23-c1a9b877830b)
+![WhatsApp Image 2025-11-22 at 11 23 05 PM](https://github.com/user-attachments/assets/927204a1-45e2-46be-baf9-fa9fdb372eec)
+![WhatsApp Image 2025-11-22 at 11 23 05 PM (4)](https://github.com/user-attachments/assets/375a5aa4-7cb1-40ab-a581-1314cb7bc52b)
+![WhatsApp Image 2025-11-22 at 11 23 05 PM (3)](https://github.com/user-attachments/assets/1060bcd9-41f3-4ff2-a4ea-1d1d9f59e93e)
+![WhatsApp Image 2025-11-22 at 11 23 05 PM (2)](https://github.com/user-attachments/assets/074481db-41d8-4288-a1c8-302d95cbba19)
+![WhatsApp Image 2025-11-22 at 11 23 05 PM (1)](https://github.com/user-attachments/assets/26184e79-eb55-4c75-b538-8d00ea61f768)
+<img width="1920" height="1109" alt="Screenshot 2025-11-22 at 11 25 28 PM" src="https://github.com/user-attachments/assets/e606e188-7181-4ba3-a2fa-b380fffa7eb6" />
+<img width="1918" height="1114" alt="Screenshot 2025-11-22 at 11 25 07 PM" src="https://github.com/user-attachments/assets/f9f3cab6-70ee-47d4-800c-f654fb701268" />
 
-### Home Page
 
-![Home Page](/mnt/data/Screenshot 2025-11-22 at 11.25.07 PM.png)
-![Home Page 2](/mnt/data/Screenshot 2025-11-22 at 11.25.28 PM.png)
-
-### Live Menus
-
-![Live Menu 1](/mnt/data/WhatsApp Image 2025-11-22 at 11.23.05 PM (1).jpeg)
-![Live Menu 2](/mnt/data/WhatsApp Image 2025-11-22 at 11.23.05 PM (2).jpeg)
-![Live Menu 3](/mnt/data/WhatsApp Image 2025-11-22 at 11.23.05 PM (3).jpeg)
-![Live Menu 4](/mnt/data/WhatsApp Image 2025-11-22 at 11.23.05 PM (4).jpeg)
-
-### Restaurant Menu Screens
-
-![Menu Screen 1](/mnt/data/WhatsApp Image 2025-11-22 at 11.23.05 PM.jpeg)
-![Menu Screen 2](/mnt/data/WhatsApp Image 2025-11-22 at 11.23.06 PM (1).jpeg)
-![Menu Screen 3](/mnt/data/WhatsApp Image 2025-11-22 at 11.23.06 PM (2).jpeg)
-![Menu Screen 4](/mnt/data/WhatsApp Image 2025-11-22 at 11.23.06 PM.jpeg)
-
-## Deployment Guides
 
 Follow deployment steps for:
 
