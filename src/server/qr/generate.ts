@@ -19,10 +19,8 @@ export async function generateRestaurantQR(slug: string, baseUrl?: string) {
     // 4. Fall back to relative path (works for client-side)
     let base = baseUrl;
     
-    if (!base) {
-      base = env.NEXT_PUBLIC_API_BASE_URL ?? 
-             process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined;
-    }
+    base ??= env.NEXT_PUBLIC_API_BASE_URL ?? 
+             (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined);
     
     // Ensure base URL doesn't end with a slash
     const cleanBase = base?.replace(/\/$/, "");
