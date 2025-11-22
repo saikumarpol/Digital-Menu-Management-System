@@ -274,18 +274,19 @@ I first reviewed the requirements and understood the need for a digital menu sys
 
 
 ## Screenshots
-![WhatsApp Image 2025-11-22 at 11 23 06 PM](https://github.com/user-attachments/assets/a2011e80-e1e3-44ff-b9a4-2cba253ff86b)
-![WhatsApp Image 2025-11-22 at 11 23 06 PM (2)](https://github.com/user-attachments/assets/ec5216f0-3087-44e5-b0e2-940b7fd79413)
-![WhatsApp Image 2025-11-22 at 11 23 06 PM (1)](https://github.com/user-attachments/assets/b5ee9f0f-1c21-4195-ad23-c1a9b877830b)
-![WhatsApp Image 2025-11-22 at 11 23 05 PM](https://github.com/user-attachments/assets/927204a1-45e2-46be-baf9-fa9fdb372eec)
-![WhatsApp Image 2025-11-22 at 11 23 05 PM (4)](https://github.com/user-attachments/assets/375a5aa4-7cb1-40ab-a581-1314cb7bc52b)
-![WhatsApp Image 2025-11-22 at 11 23 05 PM (3)](https://github.com/user-attachments/assets/1060bcd9-41f3-4ff2-a4ea-1d1d9f59e93e)
-![WhatsApp Image 2025-11-22 at 11 23 05 PM (2)](https://github.com/user-attachments/assets/074481db-41d8-4288-a1c8-302d95cbba19)
-![WhatsApp Image 2025-11-22 at 11 23 05 PM (1)](https://github.com/user-attachments/assets/26184e79-eb55-4c75-b538-8d00ea61f768)
-<img width="1920" height="1109" alt="Screenshot 2025-11-22 at 11 25 28 PM" src="https://github.com/user-attachments/assets/e606e188-7181-4ba3-a2fa-b380fffa7eb6" />
-<img width="1918" height="1114" alt="Screenshot 2025-11-22 at 11 25 07 PM" src="https://github.com/user-attachments/assets/f9f3cab6-70ee-47d4-800c-f654fb701268" />
+<img width="1918" height="1114" alt="Screenshot 2025-11-22 at 11 25 07 PM" src="https://github.com/user-attachments/assets/5f353bfd-b13f-4a55-9e86-c2757af87bd4" />
 
+<img width="1920" height="1109" alt="Screenshot 2025-11-22 at 11 25 28 PM" src="https://github.com/user-attachments/assets/3f854db6-e6a1-477c-aa34-01348c32b559" />
 
+![WhatsApp Image 2025-11-22 at 11 23 05 PM](https://github.com/user-attachments/assets/ea86d3d8-3053-4efb-ba69-b87dc6cf52c6)![WhatsApp Image 2025-11-22 at 11 23 06 PM (2)](https://github.com/user-attachments/assets/48b61612-1b30-4abf-95f2-b6b9dbe957c1)
+
+![WhatsApp Image 2025-11-22 at 11 23 06 PM (1)](https://github.com/user-attachments/assets/33b2a36f-1770-450d-9580-9ad1e6481792)
+![WhatsApp Image 2025-11-22 at 11 23 06 PM](https://github.com/user-attachments/assets/6ed6f8a5-b542-4a5d-a019-a87dbaabae3a)
+![WhatsApp Image 2025-11-22 at 11 23 05 PM (4)](https://github.com/user-attachments/assets/4966ad5a-d2ac-4f99-8310-20fd5b6a6c3e)
+![WhatsApp Image 2025-11-22 at 11 23 05 PM (1)](https://github.com/user-attachments/assets/52e8be84-2191-4480-8ffb-54b83842a638)
+
+![WhatsApp Image 2025-11-22 at 11 23 05 PM (2)](https://github.com/user-attachments/assets/13596bcd-e752-4a58-8085-6310b8096336)
+![WhatsApp Image 2025-11-22 at 11 23 05 PM (3)](https://github.com/user-attachments/assets/8e1d2ae2-a9f0-4a65-9c8f-1fc410b000dc)
 
 Follow deployment steps for:
 
