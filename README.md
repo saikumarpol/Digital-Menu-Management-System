@@ -272,13 +272,6 @@ I first reviewed the requirements and understood the need for a digital menu sys
 * **ChatGPT (GPT models)** for code guidance, debugging, and improving UI/UX logic
 * **Cursor IDE (AI coding editor)** for refactoring and debugging support
 
-### ❗ Prompts Provided to AI Tools
-
-Not applicable / not included by request.
-
-### ❗ AI Mistakes & Edge Cases Sections
-
-Removed as requested.
 
 ## Deployment Guides
 
