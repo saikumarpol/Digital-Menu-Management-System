@@ -253,6 +253,33 @@ To learn more about the T3 stack:
 * Documentation: [https://create.t3.gg/](https://create.t3.gg/)
 * Tutorials: [https://create.t3.gg/en/faq#what-learning-resources-are-currently-available](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available)
 
+## SUBMISSION DETAILS
+
+### 🔗 Vercel Hosted Link
+
+[https://digital-menu-management-system.vercel.app/](https://digital-menu-management-system.vercel.app/)
+
+### 🧠 Approach to Solving the Assignment
+
+I first reviewed the requirements and understood the need for a digital menu system with admin controls, dynamic dish/category management, Cloudinary image upload, and QR-based customer access. I used the T3 stack (Next.js, tRPC, Prisma, PostgreSQL) to build a fully functional admin panel and a mobile-responsive public menu page. I followed a modular, scalable architecture to avoid complexity and future-proof the system.
+
+### 💻 IDE Used
+
+* **Visual Studio Code (VS Code)**
+
+### 🤖 AI Tools & Models Used
+
+* **ChatGPT (GPT models)** for code guidance, debugging, and improving UI/UX logic
+* **Cursor IDE (AI coding editor)** for refactoring and debugging support
+
+### ❗ Prompts Provided to AI Tools
+
+Not applicable / not included by request.
+
+### ❗ AI Mistakes & Edge Cases Sections
+
+Removed as requested.
+
 ## Deployment Guides
 
 Follow deployment steps for:
