@@ -6,12 +6,20 @@ import CategoryRow from "~/components/admin/CategoryRow";
 import DishCardClient from "~/components/admin/DishCardClient";
 import MenuShare from "~/components/MenuShare";
 
-export default async function RestaurantManagePage({ params }: any) {
+type RestaurantWithRelations = Awaited<
+  ReturnType<ReturnType<typeof appRouter.createCaller>["restaurants"]["getBySlug"]>
+>;
+
+export default async function RestaurantManagePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   // params is a Promise-like object in this Next.js version — await it before use
-  const { slug } = (await params) as { slug: string };
+  const { slug } = await params;
 
   const caller = appRouter.createCaller(await createTRPCContext());
-  const restaurant = await caller.restaurants.getBySlug({ slug });
+  const restaurant: RestaurantWithRelations = await caller.restaurants.getBySlug({ slug });
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 px-4 py-10 text-white sm:px-6 lg:px-10">
@@ -84,7 +92,7 @@ export default async function RestaurantManagePage({ params }: any) {
           )}
 
           <div className="space-y-6">
-            {restaurant.categories.map((c: any) => (
+            {restaurant.categories.map((c) => (
               <div
                 key={c.id}
                 className="rounded-2xl border border-white/10 bg-slate-950/40 p-4 shadow-inner shadow-black/30"
@@ -96,7 +104,7 @@ export default async function RestaurantManagePage({ params }: any) {
                 {/* list dishes under this category */}
                 <ul className="space-y-3">
                   {c.DishCategory && c.DishCategory.length > 0 ? (
-                    c.DishCategory.map((dc: any) => (
+                    c.DishCategory.map((dc) => (
                       <li key={dc.id}>
                         <DishCardClient
                           id={dc.dish.id}
@@ -131,13 +139,13 @@ export default async function RestaurantManagePage({ params }: any) {
 
           <ul className="mt-4 space-y-3">
             {restaurant.dishes
-              .filter((d: any) => {
-                const inCategory = restaurant.categories.some((c: any) =>
-                  (c.DishCategory || []).some((dc: any) => dc.dishId === d.id),
+              .filter((d) => {
+                const inCategory = restaurant.categories.some((c) =>
+                  (c.DishCategory ?? []).some((dc) => dc.dishId === d.id),
                 );
                 return !inCategory;
               })
-              .map((d: any) => (
+              .map((d) => (
                 <li key={d.id}>
                   <DishCardClient
                     id={d.id}
@@ -149,9 +157,9 @@ export default async function RestaurantManagePage({ params }: any) {
                 </li>
               ))}
 
-            {restaurant.dishes.filter((d: any) => {
-              const inCategory = restaurant.categories.some((c: any) =>
-                (c.DishCategory || []).some((dc: any) => dc.dishId === d.id),
+            {restaurant.dishes.filter((d) => {
+              const inCategory = restaurant.categories.some((c) =>
+                (c.DishCategory ?? []).some((dc) => dc.dishId === d.id),
               );
               return !inCategory;
             }).length === 0 && (

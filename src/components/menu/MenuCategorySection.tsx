@@ -1,9 +1,17 @@
+type DishDisplay = {
+  id: string;
+  name: string;
+  imageUrl?: string | null;
+  description?: string | null;
+  spiceLevel?: string | null;
+};
+
 export default function MenuCategorySection({
   category,
   dishes,
 }: {
   category: string;
-  dishes: any[];
+  dishes: DishDisplay[];
 }) {
   return (
     <section className="mb-8">

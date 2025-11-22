@@ -19,9 +19,9 @@ export default function MenuShare({ slug, size = 240 }: Props) {
     setUrl(`${origin}/menu/${slug}`);
 
     let cancelled = false;
-    fetch(`/api/qr/${encodeURIComponent(slug)}`)
+    void fetch(`/api/qr/${encodeURIComponent(slug)}`)
       .then((res) => res.json())
-      .then((data) => {
+      .then((data: { qr?: string }) => {
         if (cancelled) return;
         if (data?.qr) {
           setQrSrc(data.qr);
@@ -32,7 +32,7 @@ export default function MenuShare({ slug, size = 240 }: Props) {
       })
       .catch(() => {
         if (cancelled) return;
-        const origin = typeof window !== 'undefined' ? window.location.origin : '';
+        const origin = typeof window !== "undefined" ? window.location.origin : "";
         setQrSrc(`https://chart.googleapis.com/chart?chs=${size}x${size}&cht=qr&chl=${encodeURIComponent(`${origin}/menu/${slug}`)}`);
       });
 
@@ -43,7 +43,7 @@ export default function MenuShare({ slug, size = 240 }: Props) {
 
   function handleCopy() {
     if (typeof navigator !== "undefined" && navigator.clipboard) {
-      navigator.clipboard.writeText(url).then(() => {
+      void navigator.clipboard.writeText(url).then(() => {
         setCopied(true);
         setTimeout(() => setCopied(false), 1500);
       });

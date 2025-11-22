@@ -22,7 +22,7 @@ export const publicMenuRouter = router({
 
       // ---- TRANSFORM DISHES ----
       // Convert Prisma's DishCategory relation → categoryId[] array
-      const dishes = restaurant.dishes.map((d: any) => ({
+      const dishes = restaurant.dishes.map((d) => ({
         id: d.id,
         name: d.name,
         imageUrl: d.imageUrl,
@@ -30,7 +30,7 @@ export const publicMenuRouter = router({
         spiceLevel: d.spiceLevel,
         price: d.price,
         categories: Array.isArray(d.DishCategory)
-          ? d.DishCategory.map((dc: any) => dc.categoryId)
+          ? d.DishCategory.map((dc) => dc.categoryId)
           : [],
       }));
 

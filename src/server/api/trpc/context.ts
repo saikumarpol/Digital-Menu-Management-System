@@ -5,17 +5,20 @@ import { cookies } from "next/headers";
 
 export async function createTRPCContext() {
   const cookieStore = await cookies();
-  const token = cookieStore.get("session")?.value || null;
+  const token = cookieStore.get("session")?.value ?? null;
 
   let user = null;
 
   if (token) {
     try {
-      const decoded: any = jwt.verify(token, process.env.JWT_SECRET!);
+      const decoded = jwt.verify(token, process.env.JWT_SECRET!) as {
+        userId: string;
+        email: string;
+      };
       user = await prisma.user.findUnique({
         where: { id: decoded.userId },
       });
-    } catch (err) {
+    } catch {
       user = null;
     }
   }

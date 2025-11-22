@@ -23,7 +23,7 @@ export default function DishImageUploader({ onUpload, initialUrl }: Props) {
     try {
       const res = await fetch("/api/upload", { method: "POST", body: fd });
       if (!res.ok) throw new Error("Upload failed");
-      const data = await res.json();
+      const data = (await res.json()) as { url: string };
       onUpload(data.url);
     } catch (err) {
       console.error(err);

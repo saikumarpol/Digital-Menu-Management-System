@@ -5,9 +5,13 @@ import { useRouter } from "next/navigation";
 import { api } from "~/trpc/react";
 import DishImageUploader from "~/components/forms/DishImageUploader";
 
-export default function CreateDishPage({ params }: any) {
+export default function CreateDishPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const router = useRouter();
-  const { slug } = (React.use(params ?? {}) as { slug: string });
+  const { slug } = React.use(params);
 
   const createDish = api.dishes.create.useMutation();
   const { data: restaurantData } = api.restaurants.getBySlug.useQuery({ slug });
@@ -80,7 +84,7 @@ export default function CreateDishPage({ params }: any) {
                 onChange={(e) => setCategoryId(e.target.value || undefined)}
               >
                 <option value="">-- Select category --</option>
-                {restaurantData?.categories?.map((c: any) => (
+                {restaurantData?.categories?.map((c) => (
                   <option key={c.id} value={c.id}>{c.name}</option>
                 ))}
               </select>

@@ -17,11 +17,15 @@ type Category = { id: string; name: string };
 export default function PublicMenuClient({
   menu,
 }: {
-  menu: { restaurant: any; categories: Category[]; dishes: Dish[] };
+  menu: {
+    restaurant: { id: string; name: string; slug: string; location: string | null };
+    categories: Category[];
+    dishes: Dish[];
+  };
 }) {
   const { restaurant, categories, dishes } = menu;
 
-  const [activeCategory, setActiveCategory] = useState<string | "recommended">(
+  const [activeCategory, setActiveCategory] = useState<string>(
     "recommended"
   );
   const [showModal, setShowModal] = useState(false);
@@ -31,7 +35,7 @@ export default function PublicMenuClient({
     for (const c of categories) map[c.id] = 0;
     for (const d of dishes) {
       if (Array.isArray(d.categories) && d.categories.length > 0) {
-        d.categories.forEach((cid) => (map[cid] = (map[cid] || 0) + 1));
+        d.categories.forEach((cid) => (map[cid] = (map[cid] ?? 0) + 1));
       }
     }
     return map;

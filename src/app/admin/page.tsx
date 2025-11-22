@@ -2,7 +2,6 @@
 "use client";
 
 import Link from "next/link";
-import { useQuery } from "@tanstack/react-query";
 import { api } from "~/trpc/react";
 import RestaurantRow from "~/components/admin/RestaurantRow";
 
@@ -65,7 +64,7 @@ export default function AdminDashboard() {
               </p>
             )}
 
-            {restaurants?.map((r: any) => (
+            {restaurants?.map((r) => (
               <RestaurantRow
                 key={r.id}
                 id={r.id}

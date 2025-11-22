@@ -5,7 +5,12 @@ import { sendEmail } from "~/server/email/sendEmail"; // we will create this hel
 
 export async function POST(req: Request) {
   try {
-    const { email, fullName, country } = await req.json();
+    const body = (await req.json()) as {
+      email?: string;
+      fullName?: string;
+      country?: string;
+    };
+    const { email, fullName, country } = body;
 
     if (!email) {
       return NextResponse.json(
@@ -16,15 +21,13 @@ export async function POST(req: Request) {
 
     // 1) Create or update user
     let user = await prisma.user.findUnique({ where: { email } });
-    if (!user) {
-      user = await prisma.user.create({
-        data: {
-          email,
-          fullName: fullName || "",
-          country: country || "",
-        },
-      });
-    }
+    user ??= await prisma.user.create({
+      data: {
+        email,
+        fullName: fullName ?? "",
+        country: country ?? "",
+      },
+    });
 
     // 2) Generate OTP
     const code = Math.floor(100000 + Math.random() * 900000).toString();

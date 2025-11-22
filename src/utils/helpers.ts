@@ -1,10 +1,11 @@
 export function groupBy<T>(array: T[], key: keyof T): Record<string, T[]> {
-  return array.reduce((result, item) => {
+  const result: Record<string, T[]> = {};
+  for (const item of array) {
     const group = String(item[key]);
-    if (!result[group]) result[group] = [];
+    result[group] ??= [];
     result[group].push(item);
-    return result;
-  }, {} as Record<string, T[]>);
+  }
+  return result;
 }
 
 export function delay(ms: number) {

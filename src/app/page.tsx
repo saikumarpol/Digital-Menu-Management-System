@@ -6,7 +6,7 @@ import MenuShare from "~/components/MenuShare";
 
 export default async function HomePage() {
   const ctx = await createTRPCContext();
-  const caller = appRouter.createCaller(ctx as any);
+  const caller = appRouter.createCaller(ctx);
   const restaurants = await caller.restaurants.getPublicList();
 
   return (
@@ -420,7 +420,7 @@ export default async function HomePage() {
             </div>
 
             <div className="space-y-4">
-              {restaurants.map((r: any) => (
+              {restaurants.map((r) => (
                 <article
                   key={r.id}
                   className="group rounded-[32px] border border-emerald-100 bg-white/95 p-5 shadow-sm shadow-emerald-100/60 transition hover:-translate-y-0.5 hover:border-emerald-200 hover:shadow-lg"

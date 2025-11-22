@@ -41,9 +41,9 @@ export default function VerifyPage() {
         body: JSON.stringify({ email: email.trim().toLowerCase(), code: code.trim() }),
       });
 
-      const data = await res.json();
+      const data = (await res.json()) as { message?: string };
       if (!res.ok) {
-        setError(data?.message || "OTP verification failed. Try again.");
+        setError(data?.message ?? "OTP verification failed. Try again.");
         setLoading(false);
         return;
       }

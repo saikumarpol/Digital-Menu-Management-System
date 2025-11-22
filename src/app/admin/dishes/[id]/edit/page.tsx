@@ -2,8 +2,12 @@ import DishEditClient from "./DishEditClient";
 import { appRouter } from "~/server/api/trpc/routers/root";
 import { createTRPCContext } from "~/server/api/trpc/context";
 
-export default async function DishEditPage({ params }: any) {
-  const { id } = (await params) as { id: string };
+export default async function DishEditPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
 
   const caller = appRouter.createCaller(await createTRPCContext());
   const dish = await caller.dishes.getById({ id });

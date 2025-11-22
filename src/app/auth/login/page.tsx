@@ -36,9 +36,9 @@ export default function LoginPage() {
         body: JSON.stringify({ email: email.trim().toLowerCase(), fullName: fullName.trim(), country: country.trim() }),
       });
 
-      const data = await res.json();
+      const data = (await res.json()) as { message?: string };
       if (!res.ok) {
-        setError(data?.message || "Failed to send OTP. Try again later.");
+        setError(data?.message ?? "Failed to send OTP. Try again later.");
         setLoading(false);
         return;
       }

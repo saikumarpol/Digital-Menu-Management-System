@@ -12,7 +12,7 @@ export async function uploadImageFromFile(file: Blob | File, options?: { folder?
   const arrayBuffer = await file.arrayBuffer();
   const buffer = Buffer.from(arrayBuffer);
   const base64 = buffer.toString("base64");
-  const mime = (file as any).type || "application/octet-stream";
+  const mime = file.type ?? "application/octet-stream";
   const dataUri = `data:${mime};base64,${base64}`;
 
   const res = await cloudinary.uploader.upload(dataUri, {
@@ -20,5 +20,5 @@ export async function uploadImageFromFile(file: Blob | File, options?: { folder?
     resource_type: "image",
   });
 
-  return res.secure_url as string;
+  return res.secure_url;
 }

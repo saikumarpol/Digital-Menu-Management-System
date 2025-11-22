@@ -2,7 +2,17 @@
 
 import { useState } from "react";
 
-export default function DishForm({ onSubmit }: { onSubmit: (data: any) => void }) {
+export default function DishForm({
+  onSubmit,
+}: {
+  onSubmit: (data: {
+    name: string;
+    imageUrl: string;
+    description: string;
+    spiceLevel: string;
+    price?: number;
+  }) => void;
+}) {
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [description, setDescription] = useState("");

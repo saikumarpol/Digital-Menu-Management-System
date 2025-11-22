@@ -2,7 +2,11 @@
 
 import { useState } from "react";
 
-export default function CategoryForm({ onSubmit }: { onSubmit: (data: any) => void }) {
+export default function CategoryForm({
+  onSubmit,
+}: {
+  onSubmit: (data: { name: string }) => void;
+}) {
   const [name, setName] = useState("");
 
   return (

@@ -6,7 +6,8 @@ import { cookies } from "next/headers";
 
 export async function POST(req: Request) {
   try {
-    const { email, code } = await req.json();
+    const body = (await req.json()) as { email?: string; code?: string };
+    const { email, code } = body;
 
     if (!email || !code) {
       return NextResponse.json(
@@ -43,7 +44,7 @@ export async function POST(req: Request) {
 
     // 4) Create JWT
     const token = jwt.sign(
-      { userId: user.id, email: user.email },
+      { userId: user.id, email: user.email } as { userId: string; email: string },
       process.env.JWT_SECRET!,
       { expiresIn: "7d" }
     );

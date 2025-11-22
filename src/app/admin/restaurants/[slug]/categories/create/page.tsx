@@ -4,14 +4,18 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { api } from "~/trpc/react";
 
-export default function CreateCategoryPage({ params }: any) {
+export default function CreateCategoryPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const router = useRouter();
   const createCategory = api.categories.create.useMutation();
 
   const [name, setName] = useState("");
 
   // unwrap params promise (Next.js 15+ requires using React.use to read params)
-  const { slug } = (React.use(params ?? {}) as { slug: string });
+  const { slug } = React.use(params);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();

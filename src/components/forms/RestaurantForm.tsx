@@ -2,7 +2,11 @@
 
 import { useState } from "react";
 
-export default function RestaurantForm({ onSubmit }: { onSubmit: (data: any) => void }) {
+export default function RestaurantForm({
+  onSubmit,
+}: {
+  onSubmit: (data: { name: string; location: string }) => void;
+}) {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
 

@@ -7,8 +7,6 @@ let client: QueryClient | null = null;
  * Ensures a single QueryClient instance during RSC hydration.
  */
 export function getQueryClient() {
-  if (!client) {
-    client = new QueryClient();
-  }
+  client ??= new QueryClient();
   return client;
 }
